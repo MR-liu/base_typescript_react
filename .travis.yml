@@ -1,0 +1,18 @@
+language: node_js
+node_js: 
+    - '11'
+cache:
+  directories:
+    - node_modules    
+install:
+  - npm install
+script:
+  - npm run build
+after_script:
+  - cd ./dist
+  - git init
+  - git config user.name "MR-liu"
+  - git config user.email "best_liuzejin@sina.com"
+  - git add .
+  - git commit -m "react project"
+  - git push --force --quiet  "https://github.com/MR-liu/travis_typescript_react.git" master:gh-pages
